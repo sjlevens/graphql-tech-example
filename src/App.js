@@ -52,7 +52,7 @@ const App = () => {
       >
         <Grid item>
           <Button variant="contained" size="large" color="primary" onClick={handleOpen}>
-            Open Modal
+            Open Opportunities
           </Button>
         </Grid>
       </Grid>

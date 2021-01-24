@@ -7,13 +7,14 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 
 const httpLink = createHttpLink({
-  uri: 'https://j4cp52oiejhyxeuzsac3nkbp6a.appsync-api.ap-southeast-2.amazonaws.com/graphql',
+  uri: process.env.REACT_APP_GRAPHQL_URI,
   headers: {
     'Content-Type': 'application/graphql',
-    'x-api-key': 'da2-mkdmswirfvak3ht5tejeaz73ee',
-    Authorization: 'zolptjonbrfppf2bydrsxbbsse',
+    'x-api-key': process.env.REACT_APP_API_KEY,
+    Authorization: process.env.REACT_APP_AUTH,
   },
 })
+
 const client = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache(),
