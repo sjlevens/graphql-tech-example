@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useQuery } from '@apollo/client'
 import { makeStyles } from '@material-ui/core/styles'
-import { Dialog, IconButton, Grid, Button } from '@material-ui/core'
+import { Dialog, IconButton, Grid, Button, Typography } from '@material-ui/core'
 import { Close } from '@material-ui/icons'
 import OpposDialogContent from './oppos_dialog_content'
 import { OPPOS_QUERY } from 'graphql/querys'
@@ -25,6 +25,18 @@ const useStyles = makeStyles(theme => ({
   },
   grid: {
     height: '100%',
+    width: '100%',
+  },
+  link: {
+    textDecoration: 'none',
+  },
+  linkButton: {
+    marginTop: theme.spacing(5),
+    color: 'white',
+    backgroundColor: theme.palette.grey[800],
+    '&:hover': {
+      backgroundColor: theme.palette.grey[900],
+    },
   },
 }))
 
@@ -54,6 +66,13 @@ const App = () => {
           <Button variant="contained" size="large" color="primary" onClick={handleOpen}>
             Open Opportunities
           </Button>
+        </Grid>
+        <Grid item>
+          <a className={classes.link} href="https://github.com/sjlevens/graphql-tech-example">
+            <Button variant="contained" className={classes.linkButton}>
+              Check Out the Code!
+            </Button>
+          </a>
         </Grid>
       </Grid>
       <Dialog open={open} onClose={handleClose}>
